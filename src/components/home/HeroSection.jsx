@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { buttonVariants } from "../ui/button";
 
-const HeroSection = () => {
+const HeroSection = ({title, isType}) => {
     return (
         <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-12 grainy">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center relative isolate">
@@ -18,25 +18,25 @@ const HeroSection = () => {
               className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
             />
           </div>
-          <span className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium border shadow-lg">
+          {!isType && <span className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium border shadow-lg">
             Hey, Welcome
-          </span>
-          <h1 className="font-heading text-xl font-bold sm:text-2xl md:text-3xl lg:text-3xl">
-            Learn Now, Lead Now.
+          </span>}
+          <h1 className="capitalize font-heading text-xl font-bold sm:text-2xl md:text-3xl lg:text-3xl">
+           {title ? title : 'Learn Now, Lead Now.'} 
           </h1>
           <p className="max-w-[52rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
             “You don&apos;t truly grasp something until you&apos;ve learned it
             in multiple ways.”
           </p>
-          <div className="flex items-center gap-3 flex-wrap justify-center">
+          {!isType && <div className="flex items-center gap-3 flex-wrap justify-center">
             <p className="font-semibold">Get the latest blog in your inbox</p>
             <Link
-              href=""
+              href="/register"
               className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
             >
               Subscribe
             </Link>
-          </div>
+          </div>}
         </div>
       </section>
     )

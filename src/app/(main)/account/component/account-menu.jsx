@@ -1,11 +1,10 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
 
 const menu = [
 	{ label: "Profile", href: "/account" },
-	{ label: "Enrolled Courses", href: "/account/enrolled-courses" },
+	{ label: "My Blogs", href: "/account/my-blogs" },
 ];
 
 function Menu() {
@@ -19,7 +18,7 @@ function Menu() {
 						className={`navbar-link flex items-center py-2 rounded ${
 							pathname === item.href ? "text-primary" : "text-slate-400"
 						}`}>
-						<h6 className="mb-0 font-semibold">{item?.label}</h6>
+						<h6 className="text-sm mb-0 font-semibold">{item?.label}</h6>
 					</Link>
 				</li>
 			))}
@@ -27,7 +26,7 @@ function Menu() {
 				<Link
 					href="#"
 					className="navbar-link text-slate-400 flex items-center py-2 rounded">
-					<h6 className="mb-0 font-semibold">Sign Out</h6>
+					<h6 className="text-sm mb-0 font-semibold">Sign Out</h6>
 				</Link>
 			</li>
 		</ul>
