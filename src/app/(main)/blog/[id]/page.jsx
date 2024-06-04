@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger-with-children */
 import { blogById } from "@/app/action";
+import CommentBox from "@/components/Write/CommentBox";
 import { formatHumanReadableDate } from "@/utils/data-util";
 import { Heart, MessageCircle, ThumbsUp } from "lucide-react";
 
@@ -44,6 +45,9 @@ const BlogDetail = async ({params}) => {
         </div>
         <div className="mt-8">
             <div dangerouslySetInnerHTML={{ __html: blog?.content }} />
+        </div>
+        <div className="" id="CommentSection">
+          <CommentBox />
         </div>
       </div>
     </div>
